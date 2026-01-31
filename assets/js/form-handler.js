@@ -5,17 +5,14 @@
 
 // =========================================================================
 // ВАЖНО: Вставь сюда свой URL веб-приложения (Web App URL) от Google Apps Script
-// Пример: 'https://script.google.com/macros/s/AKfycbx.../exec'
 // =========================================================================
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxLvwxRSROW7fWT1zbtyrksVCCy7X3IylHpJTBag0mcOE6vaKZLHeYGrtVRxR5POZks/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbznkgfUUFjfPYwmfNKMKOLKacwF3PPWFW1vStXU42yHjIZt3gTu9rrgxvgmS_Uy2BdqAQ/exec';
 
 async function handleFormSubmit(event) {
-    event.preventDefault(); // Предотвращаем перезагрузку страницы
+    event.preventDefault();
 
-    // Проверяем, настроен ли URL
     if (SCRIPT_URL === 'INSERT_YOUR_GOOGLE_SCRIPT_URL_HERE' || SCRIPT_URL === '') {
-        alert('Ошибка настройки: В файле assets/js/form-handler.js не указан SCRIPT_URL. Пожалуйста, сообщите администратору.');
-        console.error('SCRIPT_URL is missing.');
+        alert('Ошибка настройки: SCRIPT_URL не указан.');
         return;
     }
 
@@ -23,53 +20,57 @@ async function handleFormSubmit(event) {
     const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('button');
     const originalBtnText = submitBtn ? submitBtn.innerText : 'Отправить';
 
-    // Блокируем кнопку, чтобы не нажали дважды
     if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerText = 'Отправка...';
     }
 
-    // Собираем данные формы
+    // Собираем основные данные формы
     const formData = new FormData(form);
     const data = {};
+    formData.forEach((value, key) => data[key] = value);
 
-    // Преобразуем FormData в простой объект
-    formData.forEach((value, key) => {
-        data[key] = value;
+    // Добавляем технические данные
+    data['source'] = window.location.pathname;
+    data['referrer'] = document.referrer;
+    data['device'] = `${navigator.platform} | ${window.screen.width}x${window.screen.height}`;
+    data['browser'] = navigator.userAgent;
+
+    // Сбор UTM-меток
+    const urlParams = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
+        data[param] = urlParams.get(param) || '';
     });
 
-    // Добавляем источник (текущая страница)
-    data['source'] = window.location.pathname;
+    // Попытка получить IP и Гео (не блокирует отправку при ошибке)
+    try {
+        const ipResponse = await fetch('https://ipapi.co/json/', { method: 'GET' });
+        if (ipResponse.ok) {
+            const ipData = await ipResponse.json();
+            data['ip'] = ipData.ip;
+            data['country'] = ipData.country_name;
+            data['city'] = ipData.city;
+        }
+    } catch (e) {
+        console.warn('Не удалось получить GeoIP данные:', e);
+    }
 
     try {
-        // Отправляем данные используя fetch
-        // mode: 'no-cors' позволяет отправлять данные на другой домен (Google) без ошибок CORS в консоли,
-        // но мы не сможем прочитать ответ (он будет "opaque").
-        // Для простых форм это допустимо: если fetch не упал с ошибкой сети, считаем, что отправилось.
+        // Отправка в Google Apps Script
         await fetch(SCRIPT_URL, {
             method: 'POST',
             body: JSON.stringify(data),
             mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            headers: { 'Content-Type': 'application/json' }
         });
 
-        // Успех!
         alert('Спасибо! Ваша заявка успешно отправлена. Менеджер свяжется с вами в течение 15 минут.');
-        form.reset(); // Очищаем форму
+        form.reset();
 
-        // Если это модальное окно, можно его закрыть
         if (typeof modalOpen !== 'undefined') {
-            // Alpine.js variable handling via DOM if needed, 
-            // but 'modalOpen = false' might not work directly inside this pure JS function 
-            // unless we dispatch an event or users click 'X'.
-            // For now, simple alert is enough feedback.
-
-            // Попытаемся закрыть модалку, если используется Alpine
+            // Попытка закрыть модалку через Alpine, если доступно
             if (window.Alpine) {
-                // Найти элемент с x-data, содержащий modalOpen
-                // Это сложно сделать универсально, поэтому оставим пользователю закрыть самому или Reset
+                // Триггер события для закрытия (если настроено) или просто пользователь закроет сам
             }
         }
 
@@ -77,7 +78,6 @@ async function handleFormSubmit(event) {
         console.error('Error!', error);
         alert('Произошла ошибка при отправке. Пожалуйста, позвоните нам по номеру +7 (843) 297-57-95.');
     } finally {
-        // Возвращаем кнопку в исходное состояние
         if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.innerText = originalBtnText;
