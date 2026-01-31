@@ -805,15 +805,15 @@
                 <p class="text-center text-gray-400 mb-10">Не ждите звонка часами. Менеджер рассчитает ваш маршрут и
                     пришлет финальное КП в Telegram или WhatsApp. Без лишних вопросов и навязчивых звонков.</p>
 
-                <form class="space-y-4" onsubmit="event.preventDefault(); modalOpen = true;">
+                <form class="space-y-4" onsubmit="handleFormSubmit(event)">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="space-y-1">
                             <label class="text-xs font-bold text-gray-500 uppercase ml-1">Контактное лицо</label>
-                            <input type="text" placeholder="Иван Петров" class="form-input">
+                            <input type="text" name="name" placeholder="Иван Петров" class="form-input" required>
                         </div>
                         <div class="space-y-1">
                             <label class="text-xs font-bold text-gray-500 uppercase ml-1">Телефон</label>
-                            <input type="tel" placeholder="+7 (999) 000-00-00" class="form-input">
+                            <input type="tel" name="phone" placeholder="+7 (999) 000-00-00" class="form-input" required>
                         </div>
                     </div>
 
@@ -821,19 +821,19 @@
                         <label class="text-xs font-bold text-gray-500 uppercase ml-1">Тип задачи</label>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
                             <label class="radio-card">
-                                <input type="radio" name="type" class="peer sr-only" checked>
+                                <input type="radio" name="type" value="Вахта" class="peer sr-only" checked>
                                 <div class="radio-box">Вахта</div>
                             </label>
                             <label class="radio-card">
-                                <input type="radio" name="type" class="peer sr-only">
+                                <input type="radio" name="type" value="Аренда" class="peer sr-only">
                                 <div class="radio-box">Аренда</div>
                             </label>
                             <label class="radio-card">
-                                <input type="radio" name="type" class="peer sr-only">
+                                <input type="radio" name="type" value="Трансфер" class="peer sr-only">
                                 <div class="radio-box">Трансфер</div>
                             </label>
                             <label class="radio-card">
-                                <input type="radio" name="type" class="peer sr-only">
+                                <input type="radio" name="type" value="Детям" class="peer sr-only">
                                 <div class="radio-box">Детям</div>
                             </label>
                         </div>
@@ -1005,16 +1005,19 @@
                         Менеджер свяжется с вами, чтобы уточнить детали и прислать финальное предложение в Telegram,
                         WhatsApp или обсудить всё по телефону.</p>
 
-                    <form class="space-y-4" onsubmit="event.preventDefault(); modalOpen = false;"
+                    <form class="space-y-4" onsubmit="handleFormSubmit(event)"
                         style="display: flex; flex-direction: column; gap: 1rem;">
-                        <input type="text" placeholder="Ваше имя" class="form-input">
-                        <input type="tel" placeholder="+7 (___) ___-__-__" class="form-input">
-                        <textarea placeholder="Маршрут или детали (например: Казань - Свияжск, 20 человек)" rows="3"
+                        <input type="hidden" name="type" value="Модальное окно">
+                        <input type="text" name="name" placeholder="Ваше имя" class="form-input" required>
+                        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" class="form-input" required>
+                        <textarea name="details"
+                            placeholder="Маршрут или детали (например: Казань - Свияжск, 20 человек)" rows="3"
                             class="form-input resize-none"></textarea>
 
                         <div class="flex items-start gap-3 text-left">
-                            <input type="checkbox" checked
-                                style="accent-color: var(--brand-accent); width: 1rem; height: 1rem; margin-top: 0.1rem; cursor: pointer;">
+                            <input type="checkbox" name="consent" checked
+                                style="accent-color: var(--brand-accent); width: 1rem; height: 1rem; margin-top: 0.1rem; cursor: pointer;"
+                                required>
                             <label class="text-xs text-gray-500 leading-tight">
                                 Согласен с обработкой персональных данных в соответствии с <a href="privacy.html"
                                     target="_blank"
@@ -1034,6 +1037,8 @@
         </div>
     </div>
 
+    <!-- Custom Form Handler -->
+    <script src="assets/js/form-handler.js"></script>
 </body>
 
 </html>
