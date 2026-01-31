@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Страница не найдена (404) — WinWin Group</title>
+    <meta name="description" content="Страница не найдена. Вернитесь на главную WinWin Group.">
+
+    <!-- Canonical & Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/logo_sec.png">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Local Tailwind CSS -->
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+
+    <!-- Alpine.js -->
+    <script src="assets/js/vendor/alpine-collapse.min.js" defer></script>
+    <script src="assets/js/vendor/alpine.min.js" defer></script>
+
+    <!-- Local Fonts -->
+    <link rel="stylesheet" href="assets/css/fonts.css">
+
+    <!-- Icons (Phosphor Icons) -->
+    <!-- Local Phosphor Icons -->
+    <link rel="stylesheet" href="assets/vendor/phosphor/regular/style.css">
+    <link rel="stylesheet" href="assets/vendor/phosphor/bold/style.css">
+    <link rel="stylesheet" href="assets/vendor/phosphor/fill/style.css">
+</head>
+
+<body x-data="{ 
+    mobileMenu: false, 
+    modalOpen: false, 
+    scrolled: false 
+}" @scroll.window="scrolled = (window.pageYOffset > 20)">
+
+    <!-- Navbar -->
+    <nav :class="scrolled ? 'navbar scrolled' : 'navbar'" class="navbar">
+        <div class="container">
+            <div class="nav-inner">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2" style="opacity: 1; transition: opacity 0.2s;"
+                    onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                    <img src="assets/img/logo_sec.png" alt="WinWin Group"
+                        style="height: 3rem; width: auto; object-fit: contain; filter: brightness(0) invert(1);"
+                        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
+
+                    <!-- Fallback Text Logo -->
+                    <div class="hidden flex-col">
+                        <span class="font-display font-bold text-xl" style="line-height: 1;">WinWin<span
+                                class="text-brand-accent">.Group</span></span>
+                        <span class="text-muted uppercase"
+                            style="font-size: 10px; letter-spacing: 0.1em; margin-top: 0.25rem;">Logistics
+                            2026</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-4" style="gap: 2rem;">
+                    <a href="index.html" class="nav-link">Главная</a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                        <button class="nav-link flex items-center gap-1">
+                            Услуги
+                            <i class="ph-bold ph-caret-down transition-transform duration-200"
+                                :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 translate-y-2"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 translate-y-2" class="dropdown-menu"
+                            style="display: none;">
+                            <div style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                                <a href="arenda.html" class="dropdown-item">Аренда автобусов</a>
+                                <a href="corp.html" class="dropdown-item">Корпоративная перевозка</a>
+                                <a href="school.html" class="dropdown-item">Школьные экскурсии</a>
+                                <a href="transfer.html" class="dropdown-item">Трансфер в аэропорт</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="auto.html" class="nav-link">Автопарк</a>
+
+                    <!-- Company Dropdown -->
+                    <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                        <button class="nav-link flex items-center gap-1">
+                            Компания
+                            <i class="ph-bold ph-caret-down transition-transform duration-200"
+                                :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 translate-y-2"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 translate-y-2" class="dropdown-menu"
+                            style="display: none;">
+                            <div style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                                <a href="onas.html" class="dropdown-item">О нас</a>
+                                <a href="lich.html" class="dropdown-item">Лицензии</a>
+                                <a href="rek.html" class="dropdown-item">Реквизиты</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contacts" class="nav-link">Контакты</a>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="https://t.me/Win24_bot" target="_blank"
+                        class="w-10 h-10 rounded-full flex items-center justify-center border border-white/5 hover:bg-brand-accent hover:text-brand-bg transition-colors"
+                        style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.05);">
+                        <i class="ph-bold ph-telegram-logo" style="font-size: 1.25rem;"></i>
+                    </a>
+                    <div class="text-right">
+                        <a href="tel:+78432975795"
+                            class="block font-display font-bold text-white hover:text-brand-accent transition-colors">+7
+                            (843) 297-57-95</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Actions & Button -->
+                <div class="lg:hidden flex items-center gap-4">
+                    <button @click="mobileMenu = !mobileMenu" class="text-white p-2">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Standard) -->
+        <div x-show="mobileMenu" x-cloak x-transition
+            class="lg:hidden bg-brand-surface absolute w-full z-50 top-20 left-0 h-[calc(100vh-80px)] overflow-y-auto"
+            style="background-color: var(--brand-surface); border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <div class="px-4 pt-4 pb-8 space-y-2"
+                style="padding: 1rem 1rem 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                <!-- Truncated for brevity, assuming standard mobile menu structure here -->
+                <a href="index.html"
+                    class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-brand-accent">Главная</a>
+                <a href="auto.html"
+                    class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-brand-accent">Автопарк</a>
+                <div class="pt-4">
+                    <a href="tel:+78432975795"
+                        class="block w-full text-center border text-brand-accent rounded-xl py-3 font-bold hover:bg-brand-accent hover:text-brand-bg transition-all"
+                        style="border: 1px solid var(--brand-accent); color: var(--brand-accent);">
+                        Позвонить
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 404 Main Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <!-- Background Noise -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none"
+            style="background-image: url('assets/img/noise.svg');"></div>
+
+        <!-- Ambient Glows -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none animate-pulse"
+            style="filter: blur(120px);"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"
+            style="filter: blur(120px);"></div>
+
+        <div class="container relative z-10 text-center">
+            <!-- Glitch Effect Text -->
+            <h1 class="font-display font-bold text-transparent leading-none mb-4 select-none"
+                style="font-size: 12rem; background: linear-gradient(to bottom, #fff, rgba(255,255,255,0.1)); -webkit-background-clip: text; background-clip: text;">
+                404
+            </h1>
+
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                <span class="text-gray-400 text-sm font-mono uppercase tracking-widest">Ошибка навигации</span>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">
+                Похоже, вы свернули не туда
+            </h2>
+
+            <p class="text-gray-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+                Этой страницы не существует или она была перемещена. Но не волнуйтесь, наши водители знают все маршруты.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="index.html"
+                    class="btn btn-accent px-8 py-3 rounded-full text-brand-bg font-bold hover:scale-105 transition-transform">
+                    <i class="ph-bold ph-house mr-2"></i>
+                    На главную
+                </a>
+                <a href="auto.html"
+                    class="group flex items-center gap-2 px-8 py-3 rounded-full border border-white/10 text-white hover:bg-white/5 transition-all">
+                    <span>Выбрать авто</span>
+                    <i
+                        class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform text-brand-accent"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Simplified) -->
+    <footer class="border-t border-white/5 bg-brand-surface py-8">
+        <div class="container text-center text-sm text-gray-500">
+            <p>&copy; 2026 WinWin Group. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Full Screen Modal (Contact) -->
+    <div x-show="modalOpen" class="modal-wrapper" aria-labelledby="modal-title" role="dialog" aria-modal="true" x-cloak>
+        <div class="flex items-center justify-center min-h-screen px-4 text-center">
+            <div x-show="modalOpen" x-transition.opacity class="modal-backdrop" @click="modalOpen = false"></div>
+            <div x-show="modalOpen" x-transition.scale class="modal-panel max-w-lg p-8">
+                <button @click="modalOpen = false" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                    <i class="ph ph-x text-2xl"></i>
+                </button>
+                <h3 class="text-xl font-bold text-white mb-4">Свяжитесь с нами</h3>
+                <form class="space-y-4 text-left">
+                    <input type="text" placeholder="Ваше имя" class="form-input">
+                    <input type="tel" placeholder="+7 (___) ___-__-__" class="form-input">
+
+                    <div class="flex items-start gap-3 text-left">
+                        <input type="checkbox" checked
+                            style="accent-color: var(--brand-accent); width: 1rem; height: 1rem; margin-top: 0.1rem; cursor: pointer;">
+                        <label class="text-xs text-gray-500 leading-tight">
+                            Согласен с обработкой персональных данных в соответствии с <a href="privacy.html"
+                                target="_blank" class="underline hover:text-brand-accent transition-colors">Политикой
+                                конфиденциальности</a>
+                        </label>
+                    </div>
+
+                    <button class="w-full btn-accent font-bold py-3 rounded-lg">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,1039 @@
+﻿<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Аренда автобусов в Казани и Иннополисе — WinWin Group | Вахта и Трансфер</title>
+    <meta name="description"
+        content="Интеллектуальные пассажирские перевозки в Казани. Аренда автобусов, вахта для сотрудников, детские группы и VIP-трансфер. Автопарк 2024 года. Лицензия. НДС.">
+    <meta name="keywords"
+        content="аренда автобуса казань, вахта сотрудников, заказ микроавтобуса, трансфер иннополис, перевозка детей">
+
+    <!-- Canonical & Favicon -->
+    <link rel="canonical" href="https://winwingroup.ru/">
+    <link rel="icon" type="image/png" href="assets/img/logo_sec.png">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="WinWin Group — Аренда автобусов в Казани">
+    <meta property="og:url" content="https://winwingroup.ru">
+    <meta property="og:image" content="assets/img/og-image.jpg">
+    <meta property="og:description"
+        content="Пассажирские перевозки комфорт и бизнес-класса. Вахта, трансфер, детские группы.">
+
+    <!-- Schema.org Microdata (LocalBusiness) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "WinWin Group",
+      "image": "assets/img/og-image.jpg",
+      "telephone": "+78432975795",
+      "email": "zakaz@winwingroup.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "пр. Ибрагимова, 58",
+        "addressLocality": "Казань",
+        "addressRegion": "РТ",
+        "postalCode": "420000",
+        "addressCountry": "RU"
+      },
+      "url": "https://winwingroup.ru",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "128"
+      }
+    }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Local Tailwind CSS -->
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+
+    <!-- Alpine.js -->
+    <script src="assets/js/vendor/alpine-collapse.min.js" defer></script>
+    <script src="assets/js/vendor/alpine.min.js" defer></script>
+
+    <!-- Local Fonts -->
+    <link rel="stylesheet" href="assets/css/fonts.css">
+
+    <!-- Icons (Phosphor Icons) -->
+    <!-- Local Phosphor Icons -->
+    <link rel="stylesheet" href="assets/vendor/phosphor/regular/style.css">
+    <link rel="stylesheet" href="assets/vendor/phosphor/bold/style.css">
+    <link rel="stylesheet" href="assets/vendor/phosphor/fill/style.css">
+</head>
+
+<body x-data="{ 
+    mobileMenu: false, 
+    modalOpen: false, 
+    activeTab: 'bus',
+    scrolled: false 
+}" @scroll.window="scrolled = (window.pageYOffset > 20)">
+
+    <!-- Navbar -->
+    <nav :class="scrolled ? 'navbar scrolled' : 'navbar'" class="navbar">
+        <div class="container">
+            <div class="nav-inner">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2" style="opacity: 1; transition: opacity 0.2s;"
+                    onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                    <img src="assets/img/logo_sec.png" alt="WinWin Group"
+                        style="height: 3rem; width: auto; object-fit: contain; filter: brightness(0) invert(1);"
+                        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
+
+                    <!-- Fallback Text Logo -->
+                    <div class="hidden flex-col">
+                        <span class="font-display font-bold text-xl" style="line-height: 1;">WinWin<span
+                                class="text-brand-accent">.Group</span></span>
+                        <span class="text-muted uppercase"
+                            style="font-size: 10px; letter-spacing: 0.1em; margin-top: 0.25rem;">Logistics
+                            2026</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden xl:flex items-center gap-4" style="gap: 2rem;">
+                    <a href="index.html" class="nav-link">Главная</a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                        <button class="nav-link flex items-center gap-1">
+                            Услуги
+                            <i class="ph-bold ph-caret-down transition-transform duration-200"
+                                :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 translate-y-2"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 translate-y-2" class="dropdown-menu"
+                            style="display: none;">
+                            <div style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                                <a href="arenda.html" class="dropdown-item">Аренда автобусов</a>
+                                <a href="corp.html" class="dropdown-item">Корпоративные перевозки</a>
+                                <a href="school.html" class="dropdown-item">Школьные экскурсии</a>
+                                <a href="transfer.html" class="dropdown-item">Трансфер в аэропорт</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="auto.html" class="nav-link">Автопарк</a>
+
+                    <!-- Company Dropdown -->
+                    <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                        <button class="nav-link flex items-center gap-1">
+                            Компания
+                            <i class="ph-bold ph-caret-down transition-transform duration-200"
+                                :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 translate-y-2"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 translate-y-2" class="dropdown-menu"
+                            style="display: none;">
+                            <div style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                                <a href="onas.html" class="dropdown-item">О нас</a>
+                                <a href="lich.html" class="dropdown-item">Лицензии</a>
+                                <a href="rek.html" class="dropdown-item">Реквизиты</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contacts" class="nav-link">Контакты</a>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="hidden xl:flex items-center gap-6">
+                    <a href="https://t.me/Win24_bot" target="_blank"
+                        class="w-10 h-10 rounded-full flex items-center justify-center border border-white/5 hover:bg-brand-accent hover:text-brand-bg transition-colors"
+                        style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.05);">
+                        <i class="ph-bold ph-telegram-logo" style="font-size: 1.25rem;"></i>
+                    </a>
+                    <div class="text-right">
+                        <a href="tel:+78432975795"
+                            class="block font-display font-bold text-white hover:text-brand-accent transition-colors">+7
+                            (843) 297-57-95</a>
+                    </div>
+                    <button @click="modalOpen = true"
+                        class="px-6 py-2 bg-brand-accent text-brand-bg rounded-lg font-bold hover:bg-white transition-all hover:scale-105"
+                        style="background-color: var(--brand-accent); color: var(--brand-bg); border-radius: 0.5rem; box-shadow: 0 0 20px rgba(212,255,0,0.2);">
+                        Расчет за 15 мин
+                    </button>
+                </div>
+
+                <!-- Mobile Actions & Button -->
+                <div class="xl:hidden flex items-center gap-4">
+                    <a href="https://t.me/Win24_bot" target="_blank"
+                        class="rounded-full flex items-center justify-center border border-white/5"
+                        style="width: 2.5rem; height: 2.5rem; background: rgba(255,255,255,0.05);">
+                        <i class="ph-bold ph-telegram-logo text-white" style="font-size: 1.25rem;"></i>
+                    </a>
+                    <a href="tel:+78432975795"
+                        class="rounded-full flex items-center justify-center border border-white/5"
+                        style="width: 2.5rem; height: 2.5rem; background: rgba(255,255,255,0.05);">
+                        <i class="ph-bold ph-phone text-white" style="font-size: 1.25rem;"></i>
+                    </a>
+                    <button @click="mobileMenu = !mobileMenu" class="text-white p-2">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak x-transition
+            class="xl:hidden bg-brand-surface absolute w-full z-50 top-20 left-0 h-[calc(100vh-80px)] overflow-y-auto"
+            style="background-color: var(--brand-surface); border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <div class="px-4 pt-4 pb-8 space-y-2"
+                style="padding: 1rem 1rem 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+
+                <a href="index.html"
+                    class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-brand-accent">Главная</a>
+
+                <!-- Mobile Services Accordion -->
+                <div x-data="{ open: false }" class="rounded-lg overflow-hidden"
+                    style="background-color: rgba(11, 15, 25, 0.5);">
+                    <button @click="open = !open"
+                        class="w-full flex items-center justify-between px-3 py-3 text-base font-medium text-white hover:text-brand-accent transition-colors"
+                        style="width: 100%; display: flex; justify-content: space-between; padding: 0.75rem;">
+                        <span>Услуги</span>
+                        <i class="ph-bold ph-caret-down transition-transform duration-200"
+                            :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse
+                        style="padding-bottom: 0.75rem; padding-left: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="arenda.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Аренда
+                            автобусов</a>
+                        <a href="corp.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Корпоративная
+                            перевозки</a>
+                        <a href="school.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Школьные
+                            экскурсии</a>
+                        <a href="transfer.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Трансфер
+                            в аэропорт</a>
+                    </div>
+                </div>
+
+                <a href="auto.html"
+                    class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-brand-accent">Автопарк</a>
+
+                <!-- Mobile Company Accordion -->
+                <div x-data="{ open: false }" class="rounded-lg overflow-hidden"
+                    style="background-color: rgba(11, 15, 25, 0.5);">
+                    <button @click="open = !open"
+                        class="w-full flex items-center justify-between px-3 py-3 text-base font-medium text-white hover:text-brand-accent transition-colors"
+                        style="width: 100%; display: flex; justify-content: space-between; padding: 0.75rem;">
+                        <span>Компания</span>
+                        <i class="ph-bold ph-caret-down transition-transform duration-200"
+                            :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse
+                        style="padding-bottom: 0.75rem; padding-left: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="onas.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">О
+                            нас</a>
+                        <a href="lich.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Лицензии</a>
+                        <a href="rek.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Реквизиты</a>
+                    </div>
+                </div>
+
+                <a href="#contacts" @click="mobileMenu = false"
+                    class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-brand-accent">Контакты</a>
+
+                <div class="pt-4">
+                    <a href="tel:+78432975795"
+                        class="block w-full text-center border text-brand-accent rounded-xl py-3 font-bold hover:bg-brand-accent hover:text-brand-bg transition-all"
+                        style="border: 1px solid var(--brand-accent); color: var(--brand-accent);">
+                        Позвонить
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Background Elements -->
+        <div class="hero-bg-video">
+            <div class="hero-overlay"></div>
+
+            <!-- VIDEO BACKGROUND -->
+            <video autoplay muted loop playsinline webkit-playsinline x-init="$el.playbackRate = 0.75"
+                poster="assets/img/G.webp" class="w-full h-full object-cover">
+                <source src="assets/video/main.mp4" type="video/mp4">
+                <!-- Fallback image -->
+                <img src="assets/img/G.webp" alt="Аренда автобуса Казань" class="w-full h-full object-cover">
+            </video>
+        </div>
+
+        <div class="container relative z-20">
+            <div class="hero-content">
+                <!-- Social Proof: License Badge -->
+                <div class="license-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="text-xs font-semibold tracking-wide uppercase text-gray-300">Лицензия №
+                        АК-16-000452</span>
+                </div>
+
+                <!-- SEO: H1 Optimized -->
+                <h1 class="hero-title">
+                    Аренда автобусов в Казани <br>
+                    <span class="text-gradient text-3xl md:text-6xl">комфорт и бизнес-класс</span>
+                </h1>
+
+                <!-- Marketing Copy -->
+                <p class="hero-subtitle">
+                    Идеально для вахт, экскурсий и трансферов. 100% гарантия подачи транспорта, работа с НДС и новые
+                    автобусы 2023-2024 года выпуска с личным диспетчером.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button @click="modalOpen = true"
+                        class="px-8 py-3 bg-brand-accent text-brand-bg rounded-lg font-bold hover:bg-white transition-colors text-lg inline-flex items-center justify-center"
+                        style="background-color: var(--brand-accent); color: var(--brand-bg); border-radius: 0.5rem; font-weight: 700;">
+                        <span class="relative z-10 flex items-center gap-2">
+                            Заказать транспорт
+                            <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </button>
+                    <a href="#fleet"
+                        class="px-8 py-3 bg-white/5 border border-white/10 backdrop-blur rounded-lg font-bold text-white hover:bg-white/10 transition-colors text-lg flex items-center justify-center gap-2"
+                        style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.5rem; backdrop-filter: blur(4px);">
+                        <i class="ph ph-bus text-brand-accent text-xl"></i>
+                        Смотреть автопарк
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="mt-8 pt-6 border-t border-white/10 pb-6"
+                    style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-bottom: 1.5rem;">
+                    <p class="text-xs text-muted uppercase tracking-widest mb-4">Нам доверяют лидеры</p>
+                    <div class="flex flex-wrap gap-x-8 gap-y-2 md:gap-y-4 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+                        style="display: flex; gap: 2rem; flex-wrap: wrap; opacity: 0.6; filter: grayscale(100%); transition: all 0.5s;">
+                        <span class="font-display font-bold text-xl">ОЭЗ ИННОПОЛИС</span>
+                        <span class="font-display font-bold text-xl">СБЕР</span>
+                        <span class="font-display font-bold text-xl">YANDEX</span>
+                        <span class="font-display font-bold text-xl">KAZAN EXPO</span>
+                        <span class="font-display font-bold text-xl">OZON</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decoration -->
+        <div class="absolute bottom-0 right-0 w-1/2 h-1/2 rounded-full pointer-events-none"
+            style="background: rgba(212, 255, 0, 0.05); filter: blur(120px);">
+        </div>
+    </section>
+
+    <!-- Services (Bento Grid) -->
+    <section id="services" class="py-24 bg-brand-bg relative overflow-hidden"
+        style="background-color: var(--brand-bg);">
+        <div class="absolute inset-0 opacity-20 pointer-events-none"
+            style="background-image: url('assets/img/noise.svg');">
+        </div>
+
+        <!-- Ambient Glows -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl pointer-events-none animate-pulse"
+            style="filter: blur(120px); opacity: 0.15;"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl pointer-events-none animate-pulse"
+            style="filter: blur(120px); opacity: 0.15; animation-delay: 1s;"></div>
+
+        <div class="container relative z-10">
+            <div class="text-center mb-16">
+                <!-- SEO: H2 -->
+                <h2 class="text-3xl md:text-5xl font-display font-bold mb-4"
+                    style="font-size: 2.5rem; margin-bottom: 1rem;">Наши направления</h2>
+                <p class="text-muted max-w-2xl mx-auto">Комплексные транспортные решения для бизнеса и частных
+                    лиц. От трансфера до масштабных вахтовых перевозок.</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Card 1: B2B Shift (Large) -->
+                <a href="corp.html" class="bento-card col-span-2 row-span-2 group block">
+                    <img src="assets/img/corp1.webp" alt="Вахтовые перевозки сотрудников"
+                        class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/50 to-transparent"
+                        style="background: linear-gradient(to top, var(--brand-bg), rgba(11,15,25,0.5), transparent);">
+                    </div>
+                    <div class="relative z-10 h-full flex flex-col justify-end">
+                        <div class="w-12 h-12 bg-user-accent rounded-full flex items-center justify-center mb-4 text-brand-bg"
+                            style="width: 3rem; height: 3rem; background-color: var(--brand-accent); border-radius: 9999px; color: var(--brand-bg); display: flex; align-items: center; justify-content: center;">
+                            <i class="ph-bold ph-factory text-2xl"></i>
+                        </div>
+                        <h3 class="text-3xl font-display font-bold text-white mb-2">Корпоративные перевозки</h3>
+                        <p class="text-gray-300 mb-6 max-w-md">Доставка сотрудников на заводы и в офисы. Алгоритмическая
+                            оптимизация маршрутов снижает расходы на 15-20%.</p>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-400" style="color: #9ca3af; font-size: 0.875rem;">
+                            <li class="flex items-center gap-2"><i
+                                    class="ph-fill ph-check-circle text-brand-accent"></i> 100%
+                                подача транспорта</li>
+                            <li class="flex items-center gap-2"><i
+                                    class="ph-fill ph-check-circle text-brand-accent"></i>
+                                Личный менеджер</li>
+                            <li class="flex items-center gap-2"><i
+                                    class="ph-fill ph-check-circle text-brand-accent"></i>
+                                Полный пакет документов с НДС</li>
+                        </ul>
+                        <span
+                            class="w-fit px-6 py-2 bg-brand-accent text-brand-bg rounded-lg font-bold hover:bg-white transition-colors"
+                            style="background-color: var(--brand-accent); color: var(--brand-bg); padding: 0.5rem 1.5rem; border-radius: 0.5rem; font-weight: 700;">Подробнее</span>
+                    </div>
+                </a>
+
+                <!-- Card 2: Events -->
+                <a href="arenda.html" class="bento-card col-span-2 group block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center"
+                            style="background: rgba(168, 85, 247, 0.2); color: #c084fc; width: 3rem; height: 3rem; border-radius: 1rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="ph-bold ph-confetti text-2xl"></i>
+                        </div>
+                        <i class="ph ph-arrow-up-right text-gray-500 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Аренда автобусов</h3>
+                    <p class="text-muted text-sm mb-4">Организация логистики для форумов, свадебных кортежей и
+                        крупных ивентов. Туристические поездки по РФ.</p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <div class="flex -space-x-2 overflow-hidden shrink-0"
+                            style="display: flex; margin-left: -0.5rem;">
+                            <img class="inline-block h-8 w-8 rounded-full object-cover" src="assets/img/m3.webp"
+                                alt="Клиент" style="width: 2rem; height: 2rem; border-radius: 9999px;" />
+                            <img class="inline-block h-8 w-8 rounded-full object-cover" src="assets/img/m4.webp"
+                                alt="Клиент" style="width: 2rem; height: 2rem; border-radius: 9999px;" />
+                            <div class="h-8 w-8 rounded-full bg-gray-700 flex items-center justify-center text-xs text-white font-bold"
+                                style="width: 2rem; height: 2rem; border-radius: 9999px; background-color: #374151; display: flex; align-items: center; justify-content: center;">
+                                +2k</div>
+                        </div>
+                        <span class="text-xs text-gray-500 font-medium leading-tight whitespace-nowrap">довольных <br>
+                            гостей</span>
+                    </div>
+                </a>
+
+                <!-- Card 3: VIP (Swapped) -->
+                <a href="transfer.html" class="bento-card block col-span-2">
+                    <div class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center mb-6"
+                        style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; width: 3rem; height: 3rem; border-radius: 1rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="ph-bold ph-airplane-tilt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Трансфер в аэропорт</h3>
+                    <p class="text-muted text-sm">Встреча с табличкой, отслеживание рейса. Автомобили от Комфорт
+                        до Бизнес класса и минивэны.</p>
+                </a>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Section (AI & Stats) -->
+    <section id="tech" class="tech-section">
+        <div class="container">
+            <div class="tech-container">
+
+                <!-- Text Content -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6" style="display: inline-flex;">
+                        <span class="bg-accent"
+                            style="width: 3rem; height: 1px; background-color: var(--brand-accent);"></span>
+                        <span class="text-brand-accent font-bold uppercase"
+                            style="letter-spacing: 0.1em; font-size: 0.875rem;">WinWin Tech</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mb-8"
+                        style="font-size: 2.5rem; line-height: 1.2;">Полный контроль <br>над движением</h2>
+
+                    <div class="space-y-8" style="display: flex; flex-direction: column; gap: 2rem;">
+                        <div class="flex gap-4 group">
+                            <div class="tech-icon-box">
+                                <i class="ph-fill ph-device-mobile text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">Цифровой кабинет 24/7</h4>
+                                <p class="text-muted">Заказчик видит карту в реальном времени. Электронный
+                                    документооборот (ЭДО) - никаких бумажек.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 group">
+                            <div class="tech-icon-box">
+                                <i class="ph-fill ph-leaf text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">Эко-стандарт (ESG)</h4>
+                                <p class="text-muted">Мы обновляем парк на Евро-5 и гибриды. Предоставляем отчеты
+                                    по углеродному следу.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 group">
+                            <div class="tech-icon-box">
+                                <i class="ph-fill ph-shield-check text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">100% Гарантия выезда</h4>
+                                <p class="text-muted">Держим 10% резерва транспорта. В случае поломки замена
+                                    прибудет за 15-20 минут.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Element (Map/App Mockup) -->
+                <div class="relative">
+                    <div class="absolute inset-0 bg-accent/20 blur-[100px] rounded-full"
+                        style="background: rgba(212, 255, 0, 0.2); filter: blur(100px);"></div>
+                    <div class="relative bg-brand-bg border border-white/10 rounded-2xl p-6 shadow-2xl"
+                        style="background-color: var(--brand-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 1.5rem;">
+                        <!-- Mock Header -->
+                        <div class="flex justify-between items-center mb-6 pb-4 border-b border-white/5"
+                            style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"
+                                    style="width: 0.75rem; height: 0.75rem; background-color: #ef4444; border-radius: 50%;">
+                                </div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"
+                                    style="width: 0.75rem; height: 0.75rem; background-color: #eab308; border-radius: 50%;">
+                                </div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"
+                                    style="width: 0.75rem; height: 0.75rem; background-color: #22c55e; border-radius: 50%;">
+                                </div>
+                            </div>
+                            <span class="text-xs text-gray-500 font-mono"
+                                style="font-family: monospace; color: #6b7280;">WinWin Logistics System v4.0</span>
+                        </div>
+
+                        <!-- Mock Stats -->
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-brand-card p-4 rounded-lg"
+                                style="background-color: var(--brand-card); padding: 1rem; border-radius: 0.5rem;">
+                                <p class="text-xs text-gray-500 mb-1">Активные рейсы</p>
+                                <p class="text-2xl font-mono font-bold text-brand-accent"
+                                    style="font-family: monospace; color: var(--brand-accent);">14</p>
+                            </div>
+                            <div class="bg-brand-card p-4 rounded-lg"
+                                style="background-color: var(--brand-card); padding: 1rem; border-radius: 0.5rem;">
+                                <p class="text-xs text-gray-500 mb-1">Сэкономлено времени</p>
+                                <p class="text-2xl font-mono font-bold text-white" style="font-family: monospace;">34ч
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Mock Map placeholder -->
+                        <div class="h-64 bg-[#1a1f2e] rounded-lg relative overflow-hidden group"
+                            style="height: 16rem; background-color: #1a1f2e; border-radius: 0.5rem;">
+                            <!-- Stylized Map Pattern -->
+                            <div class="absolute inset-0 opacity-20"
+                                style="background-image: radial-gradient(#4b5563 1px, transparent 1px); background-size: 20px 20px;">
+                            </div>
+
+                            <!-- Route Line -->
+                            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 500 250"
+                                preserveAspectRatio="xMidYMid meet">
+                                <path d="M50 200 Q 150 100 300 150 T 450 50" stroke="#D4FF00" stroke-width="3"
+                                    fill="none" stroke-dasharray="5,5">
+                                    <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s"
+                                        repeatCount="indefinite" />
+                                </path>
+                            </svg>
+
+                            <!-- Bus Icon -->
+                            <div class="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-brand-bg p-2 rounded-full"
+                                style="transform: translate(-50%, -50%); background-color: var(--brand-accent); color: var(--brand-bg); padding: 0.5rem; border-radius: 50%; box-shadow: 0 0 15px #D4FF00;">
+                                <i class="ph-fill ph-bus text-xl"></i>
+                            </div>
+
+                            <div class="absolute bottom-4 left-4 bg-brand-bg/90 backdrop-blur px-3 py-1 rounded text-xs text-white border border-white/10"
+                                style="background: rgba(11, 15, 25, 0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.25rem;">
+                                <span class="w-2 h-2 bg-green-500 rounded-full inline-block mr-1"
+                                    style="background-color: #22c55e;"></span> Маршрут К-42:
+                                По расписанию
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section (Tabs) -->
+    <section id="fleet" class="fleet-section">
+        <div class="container">
+            <h2 class="text-4xl font-display font-bold mb-12 text-center">Наш автопарк</h2>
+
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap justify-center mb-12 gap-2">
+                <div class="flex flex-wrap justify-center bg-brand-surface p-1 rounded-xl border border-white/5 gap-2"
+                    style="background-color: var(--brand-surface); border: 1px solid rgba(255,255,255,0.05); padding: 0.25rem; border-radius: 0.75rem;">
+                    <button @click="activeTab = 'bus'" :class="activeTab === 'bus' ? 'active' : ''"
+                        class="tab-btn">Автобусы
+                        (39-55)</button>
+                    <button @click="activeTab = 'micro'" :class="activeTab === 'micro' ? 'active' : ''"
+                        class="tab-btn">Микроавтобусы
+                        (18-20)</button>
+                    <button @click="activeTab = 'minivan'" :class="activeTab === 'minivan' ? 'active' : ''"
+                        class="tab-btn">Минивэны
+                        (6-8)</button>
+                    <button @click="activeTab = 'sedan'" :class="activeTab === 'sedan' ? 'active' : ''"
+                        class="tab-btn">Премиум авто</button>
+                </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[400px]" style="min-height: 400px;">
+                <!-- Vehicle Image Area -->
+                <div class="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group"
+                    style="aspect-ratio: 16/9; border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem;">
+                    <div class="absolute inset-0 bg-brand-card" style="background-color: var(--brand-card);"></div>
+
+                    <!-- Images per tab -->
+                    <img x-show="activeTab === 'bus'" x-transition.opacity.duration.500ms src="assets/img/1.webp"
+                        class="absolute inset-0 w-full h-full object-cover" alt="Туристический автобус Yutong">
+                    <img x-show="activeTab === 'micro'" x-transition.opacity.duration.500ms src="assets/img/2.webp"
+                        class="absolute inset-0 w-full h-full object-cover" alt="Микроавтобус Mercedes Sprinter">
+                    <img x-show="activeTab === 'minivan'" x-transition.opacity.duration.500ms src="assets/img/3.webp"
+                        class="absolute inset-0 w-full h-full object-cover" alt="Минивэн Voyah Dream / Hyundai Staria">
+                    <img x-show="activeTab === 'sedan'" x-transition.opacity.duration.500ms src="assets/img/4.webp"
+                        class="absolute inset-0 w-full h-full object-cover" alt="Седан бизнес класса">
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent"
+                        style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                        <span class="px-3 py-1 bg-brand-accent text-brand-bg font-bold text-xs rounded uppercase"
+                            style="background-color: var(--brand-accent); color: var(--brand-bg); padding: 0.25rem 0.75rem; border-radius: 0.25rem;">Собственность
+                            компании</span>
+                    </div>
+                </div>
+
+                <!-- Specs Area (Enhanced Content) -->
+                <div>
+                    <h3 class="text-3xl font-bold mb-4" x-text="
+                        activeTab === 'bus' ? 'Yutong / Higer (Туристический класс)' : 
+                        activeTab === 'micro' ? 'Mercedes-Benz Sprinter / Ford Transit' :
+                        activeTab === 'minivan' ? 'Voyah Dream / Hyundai Staria' :
+                        'Range Rover Sport / Toyota Camry'
+                    "></h3>
+
+                    <p class="text-2xl font-bold text-brand-accent mb-4" x-text="
+                        activeTab === 'bus' ? 'от 3000 ₽/час' : 
+                        activeTab === 'micro' ? 'от 2000 ₽/час' :
+                        activeTab === 'minivan' ? '2500 ₽/час' :
+                        '2500 ₽/час'
+                    "></p>
+
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Идеальное техническое состояние. Транспорт не старше 3-5 лет. Перед каждым выездом проходит
+                        полную мойку и санитарную обработку салона.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-users text-brand-accent text-xl"></i>
+                            <div>
+                                <p class="text-xs text-gray-500">Вместимость</p>
+                                <p class="font-bold" x-text="
+                                    activeTab === 'bus' ? 'до 55 мест' : 
+                                    activeTab === 'micro' ? 'до 20 мест' :
+                                    activeTab === 'minivan' ? 'до 7 мест' :
+                                    '3-4 места'
+                                "></p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-wifi-high text-brand-accent text-xl"></i>
+                            <div>
+                                <p class="text-xs text-gray-500">Комфорт</p>
+                                <p class="font-bold">Wi-Fi, USB, AC</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-suitcase text-brand-accent text-xl"></i>
+                            <div>
+                                <p class="text-xs text-gray-500">Багаж</p>
+                                <p class="font-bold">Просторное отделение</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-microphone-stage text-brand-accent text-xl"></i>
+                            <div>
+                                <p class="text-xs text-gray-500">Опции</p>
+                                <p class="font-bold">Микрофон, TV</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button @click="modalOpen = true"
+                        class="w-full sm:w-auto bg-white text-brand-bg px-8 py-3 rounded-xl font-bold hover:bg-gray-200 transition-colors"
+                        style="background-color: #fff; color: var(--brand-bg); padding: 0.75rem 2rem; border-radius: 0.75rem;">
+                        Забронировать этот класс
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section id="reviews" class="reviews-section">
+        <!-- Background decoration -->
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            style="background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);">
+        </div>
+
+        <div class="container relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Left: Stats -->
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-display font-bold mb-8"
+                        style="font-size: 2.5rem; line-height: 1.2;">
+                        Репутация, <br>
+                        <span class="text-brand-accent">подтвержденная цифрами</span>
+                    </h2>
+                    <p class="text-muted text-lg mb-12">
+                        Мы не просто перевозим людей — мы обеспечиваем стабильность бизнес-процессов наших партнеров уже
+                        более 12 лет.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="p-6 rounded-2xl bg-brand-bg border border-white/5"
+                            style="padding: 1.5rem; border-radius: 1rem; background-color: var(--brand-bg); border: 1px solid rgba(255,255,255,0.05);">
+                            <p class="text-4xl font-display font-bold text-white mb-2" style="font-size: 2.25rem;">12+
+                            </p>
+                            <p class="text-sm text-gray-500 uppercase tracking-wide">Лет на рынке Татарстана</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-brand-bg border border-white/5"
+                            style="padding: 1.5rem; border-radius: 1rem; background-color: var(--brand-bg); border: 1px solid rgba(255,255,255,0.05);">
+                            <p class="text-4xl font-display font-bold text-brand-accent mb-2"
+                                style="font-size: 2.25rem; color: var(--brand-accent);">50k+</p>
+                            <p class="text-sm text-gray-500 uppercase tracking-wide">Пассажиров ежемесячно</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-brand-bg border border-white/5"
+                            style="padding: 1.5rem; border-radius: 1rem; background-color: var(--brand-bg); border: 1px solid rgba(255,255,255,0.05);">
+                            <p class="text-4xl font-display font-bold text-white mb-2" style="font-size: 2.25rem;">99.9%
+                            </p>
+                            <p class="text-sm text-gray-500 uppercase tracking-wide">Рейсов точно по графику</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-brand-bg border border-white/5"
+                            style="padding: 1.5rem; border-radius: 1rem; background-color: var(--brand-bg); border: 1px solid rgba(255,255,255,0.05);">
+                            <p class="text-4xl font-display font-bold text-brand-accent mb-2"
+                                style="font-size: 2.25rem; color: var(--brand-accent);">24/7</p>
+                            <p class="text-sm text-gray-500 uppercase tracking-wide">Поддержка диспетчера</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Reviews -->
+                <div class="space-y-6" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <!-- Review Card 1 -->
+                    <div class="review-card group">
+                        <i class="ph-fill ph-quotes text-4xl text-brand-accent/20 absolute top-8 right-8"
+                            style="font-size: 2.25rem; color: rgba(212, 255, 0, 0.2); position: absolute; top: 2rem; right: 2rem;"></i>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gray-700 rounded-full overflow-hidden"
+                                style="width: 3rem; height: 3rem; border-radius: 50%; overflow: hidden;">
+                                <img src="assets/img/m2.webp" class="w-full h-full object-cover" alt="HR Директор">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Елена Смирнова</h4>
+                                <p class="text-xs text-brand-accent uppercase tracking-widest"
+                                    style="color: var(--brand-accent);">HR-Директор, "ТехноПром"
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic leading-relaxed">
+                            "Работаем с WinWin по вахте уже 3 года. Главное для нас — это отсутствие опозданий, так как
+                            конвейер не может ждать. За все время ни одного срыва рейса. Водители всегда на связи,
+                            автобусы чистые."
+                        </p>
+                    </div>
+
+                    <!-- Review Card 2 -->
+                    <div class="review-card group">
+                        <i class="ph-fill ph-quotes text-4xl text-brand-accent/20 absolute top-8 right-8"
+                            style="font-size: 2.25rem; color: rgba(212, 255, 0, 0.2); position: absolute; top: 2rem; right: 2rem;"></i>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-gray-700 rounded-full overflow-hidden"
+                                style="width: 3rem; height: 3rem; border-radius: 50%; overflow: hidden;">
+                                <img src="assets/img/m1.webp" class="w-full h-full object-cover" alt="Event Manager">
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Руслан Каримов</h4>
+                                <p class="text-xs text-brand-accent uppercase tracking-widest"
+                                    style="color: var(--brand-accent);">Организатор форумов</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic leading-relaxed">
+                            "Заказывали кортеж из минивэнов V-Class и автобусов для международной делегации. Водители в
+                            костюмах, идеальное знание города. Уровень сервиса соответствует самым
+                            высоким стандартам."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator / CTA Section -->
+    <section id="contacts" class="contact-section">
+        <div class="absolute inset-0 bg-accent/5" style="background-color: rgba(212, 255, 0, 0.05);"></div>
+
+        <div class="container relative z-10 max-w-4xl mx-auto">
+            <div
+                class="bg-brand-card border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <!-- Decorative Circle -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-accent/10 rounded-full blur-3xl"></div>
+
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-center mb-4">Узнайте точную стоимость за 15
+                    минут</h2>
+                <p class="text-center text-gray-400 mb-10">Не ждите звонка часами. Менеджер рассчитает ваш маршрут и
+                    пришлет финальное КП в Telegram или WhatsApp. Без лишних вопросов и навязчивых звонков.</p>
+
+                <form class="space-y-4" onsubmit="event.preventDefault(); modalOpen = true;">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase ml-1">Контактное лицо</label>
+                            <input type="text" placeholder="Иван Петров" class="form-input">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-gray-500 uppercase ml-1">Телефон</label>
+                            <input type="tel" placeholder="+7 (999) 000-00-00" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-gray-500 uppercase ml-1">Тип задачи</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <label class="radio-card">
+                                <input type="radio" name="type" class="peer sr-only" checked>
+                                <div class="radio-box">Вахта</div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="type" class="peer sr-only">
+                                <div class="radio-box">Аренда</div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="type" class="peer sr-only">
+                                <div class="radio-box">Трансфер</div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="type" class="peer sr-only">
+                                <div class="radio-box">Детям</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button
+                            class="w-full py-4 bg-brand-accent text-brand-bg rounded-lg font-bold text-lg hover:bg-white transition-colors"
+                            style="background-color: var(--brand-accent); color: var(--brand-bg); border-radius: 0.5rem;">
+                            Получить расчет
+                        </button>
+                    </div>
+                    <p class="text-center text-xs text-gray-600 mt-4">Нажимая кнопку, вы соглашаетесь с политикой
+                        конфиденциальности.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer-section">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Column 1: Brand & Socials -->
+                <div class="col-span-1 md:col-span-1 space-y-8">
+                    <a href="index.html" class="inline-block hover:opacity-80 transition-opacity">
+                        <img src="assets/img/logo_sec.png" alt="WinWin Group"
+                            class="h-12 w-auto object-contain brightness-0 invert"
+                            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('block');">
+                    </a>
+                    <!-- Fallback -->
+                    <div class="hidden">
+                        <span class="font-display font-bold text-2xl text-white">WinWin<span
+                                class="text-brand-accent">.Group</span></span>
+                    </div>
+
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                        Официальный транспортный партнер вашего бизнеса. Пассажирские перевозки в Казани, Иннополисе и
+                        по всей России.
+                    </p>
+
+                    <div class="flex gap-4">
+                        <a href="https://t.me/Win24_bot" target="_blank" class="social-link">
+                            <i class="ph-bold ph-telegram-logo text-2xl"></i>
+                        </a>
+                        <a href="https://wa.me/79872975795" target="_blank" class="social-link">
+                            <i class="ph-bold ph-whatsapp-logo text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Clients -->
+                <div>
+                    <h4 class="font-display text-lg font-bold text-white mb-8 tracking-wide">Клиентам</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="corp.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Корпоративный
+                                транспорт</a></li>
+                        <li><a href="arenda.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Аренда
+                                автобусов</a></li>
+                        <li><a href="school.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Школьные
+                                экскурсии</a></li>
+                        <li><a href="transfer.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Трансфер
+                                в аэропорт</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Company -->
+                <div>
+                    <h4 class="font-display text-lg font-bold text-white mb-8 tracking-wide">Компания</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="onas.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">О
+                                нас</a></li>
+                        <li><a href="auto.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Наш
+                                автопарк</a></li>
+                        <li><a href="lich.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Лицензии</a>
+                        </li>
+                        <li><a href="rek.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Реквизиты</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contacts (UX Improved) -->
+                <div>
+                    <h4 class="font-display text-lg font-bold text-white mb-8 tracking-wide">Контакты</h4>
+                    <ul class="space-y-6 text-sm">
+
+                        <!-- Phone (Main CTA) -->
+                        <li>
+                            <p class="text-xs text-gray-500 mb-1 uppercase tracking-widest">Круглосуточно</p>
+                            <a href="tel:+78432975795"
+                                class="font-display text-2xl font-bold text-white hover:text-brand-accent transition-colors block mb-2">
+                                +7 (843) 297-57-95
+                            </a>
+                            <button @click="modalOpen = true"
+                                class="text-brand-accent text-xs font-bold uppercase tracking-widest border-b border-brand-accent/30 hover:border-brand-accent transition-colors pb-0.5">
+                                Заказать обратный звонок
+                            </button>
+                        </li>
+
+                        <!-- Address (Clickable) -->
+                        <li>
+                            <a href="https://yandex.ru/maps/-/CDuPFKj-" target="_blank"
+                                class="group flex items-start gap-3 text-gray-400 hover:text-white transition-colors">
+                                <i
+                                    class="ph-fill ph-map-pin text-brand-accent text-lg mt-0.5 group-hover:scale-110 transition-transform"></i>
+                                <span>г. Казань, пр. Ибрагимова, 58</span>
+                            </a>
+                        </li>
+
+                        <!-- Email -->
+                        <li>
+                            <a href="mailto:zakaz@winwingroup.ru"
+                                class="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                                <i
+                                    class="ph-fill ph-envelope-simple text-brand-accent text-lg group-hover:scale-110 transition-transform"></i>
+                                <span>zakaz@winwingroup.ru</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/5 pt-8 mt-8">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500 flex-wrap">
+                    <p>&copy; 2026 WinWin Group. Все права защищены. ОГРН 1191690042456</p>
+                    <div class="flex gap-8">
+                        <a href="privacy.html" class="hover:text-white transition-colors">Политика
+                            конфиденциальности</a>
+                        <a href="publ.html" class="hover:text-white transition-colors">Публичная оферта</a>
+                        <a href="sitemap.xml" class="hover:text-white transition-colors">Карта сайта</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Full Screen Modal -->
+    <div x-show="modalOpen" class="modal-wrapper" aria-labelledby="modal-title" role="dialog" aria-modal="true" x-cloak>
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0"
+            style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 1rem;">
+            <div x-show="modalOpen" x-transition.opacity class="modal-backdrop" @click="modalOpen = false"></div>
+
+            <div x-show="modalOpen" x-transition.scale class="modal-panel">
+                <button @click="modalOpen = false"
+                    class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                    <i class="ph ph-x text-2xl"></i>
+                </button>
+
+                <div class="p-8" style="padding: 2rem;">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-brand-bg"
+                            style="width: 2.5rem; height: 2.5rem; background-color: var(--brand-accent); color: var(--brand-bg); border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <i class="ph-bold ph-calculator text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Узнайте стоимость за 15 минут</h3>
+                    </div>
+
+                    <p class="text-sm text-gray-400 mb-6">Оставьте заявку, и мы подготовим расчет вашего маршрута.
+                        Менеджер свяжется с вами, чтобы уточнить детали и прислать финальное предложение в Telegram,
+                        WhatsApp или обсудить всё по телефону.</p>
+
+                    <form class="space-y-4" onsubmit="event.preventDefault(); modalOpen = false;"
+                        style="display: flex; flex-direction: column; gap: 1rem;">
+                        <input type="text" placeholder="Ваше имя" class="form-input">
+                        <input type="tel" placeholder="+7 (___) ___-__-__" class="form-input">
+                        <textarea placeholder="Маршрут или детали (например: Казань - Свияжск, 20 человек)" rows="3"
+                            class="form-input resize-none"></textarea>
+
+                        <div class="flex items-start gap-3 text-left">
+                            <input type="checkbox" checked
+                                style="accent-color: var(--brand-accent); width: 1rem; height: 1rem; margin-top: 0.1rem; cursor: pointer;">
+                            <label class="text-xs text-gray-500 leading-tight">
+                                Согласен с обработкой персональных данных в соответствии с <a href="privacy.html"
+                                    target="_blank"
+                                    class="underline hover:text-brand-accent transition-colors">Политикой
+                                    конфиденциальности</a>
+                            </label>
+                        </div>
+
+                        <button
+                            class="w-full bg-accent text-brand-bg font-bold py-3 rounded-lg hover:bg-white transition-colors"
+                            style="background-color: var(--brand-accent); color: var(--brand-bg); width: 100%; padding: 0.75rem; border-radius: 0.5rem;">
+                            Отправить заявку на расчет
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

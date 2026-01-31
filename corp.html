@@ -1,0 +1,676 @@
+﻿<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Корпоративное обслуживание — WinWin Group | Транспорт для бизнеса</title>
+    <meta name="description"
+        content="Комплексные транспортные решения для бизнеса: доставка сотрудников (вахта), трансферы на мероприятия, деловые поездки, логистика форумов. Работаем с НДС.">
+
+    <!-- Canonical & Favicon -->
+    <link rel="canonical" href="https://winwingroup.ru/corp.html">
+    <link rel="icon" type="image/png" href="assets/img/logo_sec.png">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="WinWin Group — Корпоративное обслуживание">
+    <meta property="og:url" content="https://winwingroup.ru/corp.html">
+    <meta property="og:description" content="Транспортный аутсорсинг для бизнеса. Вахта, трансферы, MICE.">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Local Tailwind CSS -->
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+
+    <!-- Alpine.js -->
+    <script src="assets/js/vendor/alpine-collapse.min.js" defer></script>
+    <script src="assets/js/vendor/alpine.min.js" defer></script>
+
+    <!-- Local Fonts -->
+    <link rel="stylesheet" href="assets/css/fonts.css">
+
+    <!-- Icons (Phosphor Icons) -->
+    <!-- Local Phosphor Icons -->
+    <link rel="stylesheet" href="assets/vendor/phosphor/regular/style.css">
+    <link rel="stylesheet" href="assets/vendor/phosphor/bold/style.css">
+    <link rel="stylesheet" href="assets/vendor/phosphor/fill/style.css">
+</head>
+
+<body x-data="{ 
+    mobileMenu: false, 
+    modalOpen: false, 
+    activeTab: 'bus',
+    scrolled: false 
+}" @scroll.window="scrolled = (window.pageYOffset > 20)">
+
+    <!-- Navbar -->
+    <nav :class="scrolled ? 'navbar scrolled' : 'navbar'" class="navbar">
+        <div class="container">
+            <div class="nav-inner">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2" style="opacity: 1; transition: opacity 0.2s;"
+                    onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                    <img src="assets/img/logo_sec.png" alt="WinWin Group"
+                        style="height: 3rem; width: auto; object-fit: contain; filter: brightness(0) invert(1);"
+                        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('flex');">
+
+                    <!-- Fallback Text Logo -->
+                    <div class="hidden flex-col">
+                        <span class="font-display font-bold text-xl" style="line-height: 1;">WinWin<span
+                                class="text-brand-accent">.Group</span></span>
+                        <span class="text-muted uppercase"
+                            style="font-size: 10px; letter-spacing: 0.1em; margin-top: 0.25rem;">Logistics
+                            2026</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden xl:flex items-center gap-4" style="gap: 2rem;">
+                    <a href="index.html" class="nav-link">Главная</a>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                        <button class="nav-link flex items-center gap-1">
+                            Услуги
+                            <i class="ph-bold ph-caret-down transition-transform duration-200"
+                                :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 translate-y-2"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 translate-y-2" class="dropdown-menu"
+                            style="display: none;">
+                            <div style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                                <a href="arenda.html" class="dropdown-item">Аренда автобусов</a>
+                                <a href="corp.html" class="dropdown-item">Корпоративная перевозка</a>
+                                <a href="school.html" class="dropdown-item">Школьные экскурсии</a>
+                                <a href="transfer.html" class="dropdown-item">Трансфер в аэропорт</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="auto.html" class="nav-link">Автопарк</a>
+
+                    <!-- Company Dropdown -->
+                    <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                        <button class="nav-link flex items-center gap-1">
+                            Компания
+                            <i class="ph-bold ph-caret-down transition-transform duration-200"
+                                :class="open ? 'rotate-180' : ''"></i>
+                        </button>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 translate-y-2"
+                            x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 translate-y-2" class="dropdown-menu"
+                            style="display: none;">
+                            <div style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+                                <a href="onas.html" class="dropdown-item">О нас</a>
+                                <a href="lich.html" class="dropdown-item">Лицензии</a>
+                                <a href="rek.html" class="dropdown-item">Реквизиты</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contacts" class="nav-link">Контакты</a>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="hidden xl:flex items-center gap-6">
+                    <a href="https://t.me/Win24_bot" target="_blank"
+                        class="w-10 h-10 rounded-full flex items-center justify-center border border-white/5 hover:bg-brand-accent hover:text-brand-bg transition-colors"
+                        style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.05);">
+                        <i class="ph-bold ph-telegram-logo" style="font-size: 1.25rem;"></i>
+                    </a>
+                    <div class="text-right">
+                        <a href="tel:+78432975795"
+                            class="block font-display font-bold text-white hover:text-brand-accent transition-colors">+7
+                            (843) 297-57-95</a>
+                    </div>
+                    <button @click="modalOpen = true" class="btn btn-accent transition-all hover:scale-105"
+                        style="box-shadow: 0 0 20px rgba(212,255,0,0.2);">
+                        Расчет за 15 мин
+                    </button>
+                </div>
+
+                <!-- Mobile Actions & Button -->
+                <div class="xl:hidden flex items-center gap-4">
+                    <a href="https://t.me/Win24_bot" target="_blank"
+                        class="rounded-full flex items-center justify-center border border-white/5"
+                        style="width: 2.5rem; height: 2.5rem; background: rgba(255,255,255,0.05);">
+                        <i class="ph-bold ph-telegram-logo text-white" style="font-size: 1.25rem;"></i>
+                    </a>
+                    <a href="tel:+78432975795"
+                        class="rounded-full flex items-center justify-center border border-white/5"
+                        style="width: 2.5rem; height: 2.5rem; background: rgba(255,255,255,0.05);">
+                        <i class="ph-bold ph-phone text-white" style="font-size: 1.25rem;"></i>
+                    </a>
+                    <button @click="mobileMenu = !mobileMenu" class="text-white p-2">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenu" x-cloak x-transition
+            class="xl:hidden bg-brand-surface absolute w-full z-50 top-20 left-0 h-[calc(100vh-80px)] overflow-y-auto"
+            style="background-color: var(--brand-surface); border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <div class="px-4 pt-4 pb-8 space-y-2"
+                style="padding: 1rem 1rem 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+
+                <a href="index.html"
+                    class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-brand-accent">Главная</a>
+
+                <!-- Mobile Services Accordion -->
+                <div x-data="{ open: false }" class="rounded-lg overflow-hidden"
+                    style="background-color: rgba(11, 15, 25, 0.5);">
+                    <button @click="open = !open"
+                        class="w-full flex items-center justify-between px-3 py-3 text-base font-medium text-white hover:text-brand-accent transition-colors"
+                        style="width: 100%; display: flex; justify-content: space-between; padding: 0.75rem;">
+                        <span>Услуги</span>
+                        <i class="ph-bold ph-caret-down transition-transform duration-200"
+                            :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse
+                        style="padding-bottom: 0.75rem; padding-left: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="arenda.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Аренда
+                            автобусов</a>
+                        <a href="corp.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Корпоративная
+                            перевозка</a>
+                        <a href="school.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Школьные
+                            экскурсии</a>
+                        <a href="transfer.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Трансфер
+                            в аэропорт</a>
+                    </div>
+                </div>
+
+                <a href="auto.html"
+                    class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-brand-accent">Автопарк</a>
+
+                <!-- Mobile Company Accordion -->
+                <div x-data="{ open: false }" class="rounded-lg overflow-hidden"
+                    style="background-color: rgba(11, 15, 25, 0.5);">
+                    <button @click="open = !open"
+                        class="w-full flex items-center justify-between px-3 py-3 text-base font-medium text-white hover:text-brand-accent transition-colors"
+                        style="width: 100%; display: flex; justify-content: space-between; padding: 0.75rem;">
+                        <span>Компания</span>
+                        <i class="ph-bold ph-caret-down transition-transform duration-200"
+                            :class="open ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="open" x-collapse
+                        style="padding-bottom: 0.75rem; padding-left: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="onas.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">О
+                            нас</a>
+                        <a href="lich.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Лицензии</a>
+                        <a href="rek.html" class="block pl-4 py-2 text-sm text-gray-400 hover:text-white"
+                            style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; color: #9ca3af;">Реквизиты</a>
+                    </div>
+                </div>
+
+                <a href="#contacts" @click="mobileMenu = false"
+                    class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-brand-accent">Контакты</a>
+
+                <div class="pt-4">
+                    <a href="tel:+78432975795"
+                        class="block w-full text-center border text-brand-accent rounded-xl py-3 font-bold hover:bg-brand-accent hover:text-brand-bg transition-all"
+                        style="border: 1px solid var(--brand-accent); color: var(--brand-accent);">
+                        Позвонить
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="padding-top: 10rem; padding-bottom: 5rem; min-height: auto;">
+        <div class="hero-bg-overlay" style="background-image: url('assets/img/noise.svg'); opacity: 0.1;"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full rounded-full"
+            style="background: rgba(212, 255, 0, 0.05); filter: blur(120px); pointer-events: none;"></div>
+
+        <div class="container relative z-10">
+            <div style="max-width: 56rem;">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border mb-6 backdrop-blur-md"
+                    style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+                    <i class="ph-fill ph-briefcase text-brand-accent"></i>
+                    <span class="text-xs font-semibold tracking-wide uppercase text-gray-300">Решения для бизнеса</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-display font-bold leading-tight mb-6"
+                    style="font-size: 2.5rem; line-height: 1.1;">
+                    Корпоративное транспортное <br>
+                    <span class="text-transparent"
+                        style="background: linear-gradient(to right, var(--brand-accent), white); -webkit-background-clip: text; background-clip: text; color: transparent;">обслуживание
+                        под ключ</span>
+                </h1>
+                <p class="text-xl text-muted leading-relaxed mb-10 w-3/4">
+                    Мы берем на себя все задачи по логистике вашей компании: от ежедневной доставки сотрудников до
+                    масштабных event-мероприятий. Единый стандарт качества и персональный сервис.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button @click="modalOpen = true" class="btn btn-accent transition-all hover:scale-105"
+                        style="box-shadow: 0 0 20px rgba(212,255,0,0.2);">
+                        Получить коммерческое предложение
+                    </button>
+                    <a href="tel:+78432975795" class="btn"
+                        style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
+                        <i class="ph-bold ph-phone-call"></i>
+                        Связаться с менеджером
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-24" style="background-color: var(--brand-bg);">
+        <div class="container">
+            <h2 class="text-3xl font-display font-bold text-white mb-12">Наши услуги для корпоративных клиентов</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+
+                <!-- Service 1: Staff Delivery -->
+                <div class="bento-card group">
+                    <div class="w-14 h-14 bg-brand-bg border border-white/5 rounded-2xl flex items-center justify-center text-brand-accent mb-6 group-hover:bg-accent group-hover:text-brand-bg transition-colors"
+                        style="width: 3.5rem; height: 3.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: var(--brand-accent);">
+                        <i class="ph-bold ph-factory text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Доставка сотрудников</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Организация ежедневной доставки персонала до места работы и обратно (вахта). Работаем по четкому
+                        графику, обеспечиваем контроль прибытия.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2"
+                        style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Заводы и предприятия</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Офисные центры</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Ночные смены</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: Events -->
+                <div class="bento-card group">
+                    <div class="w-14 h-14 bg-brand-bg border border-white/5 rounded-2xl flex items-center justify-center text-brand-accent mb-6 group-hover:bg-accent group-hover:text-brand-bg transition-colors"
+                        style="width: 3.5rem; height: 3.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: var(--brand-accent);">
+                        <i class="ph-bold ph-confetti text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Корпоративные мероприятия</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Транспортное сопровождение праздников, тимбилдингов и выездов на природу. Координация логистики
+                        для больших групп.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2"
+                        style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Новогодние корпоративы</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Летние выезды</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Любые площадки</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3: Business Travel -->
+                <div class="bento-card group">
+                    <div class="w-14 h-14 bg-brand-bg border border-white/5 rounded-2xl flex items-center justify-center text-brand-accent mb-6 group-hover:bg-accent group-hover:text-brand-bg transition-colors"
+                        style="width: 3.5rem; height: 3.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: var(--brand-accent);">
+                        <i class="ph-bold ph-briefcase-metal text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Деловые поездки</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Премиальный трансфер для руководства, делегаций и важных гостей. Автомобили бизнес и
+                        представительского класса.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2"
+                        style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Встреча в аэропорту</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Сопровождение по городу</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Конфиденциальность</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4: Intercity -->
+                <div class="bento-card group">
+                    <div class="w-14 h-14 bg-brand-bg border border-white/5 rounded-2xl flex items-center justify-center text-brand-accent mb-6 group-hover:bg-accent group-hover:text-brand-bg transition-colors"
+                        style="width: 3.5rem; height: 3.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: var(--brand-accent);">
+                        <i class="ph-bold ph-map-trifold text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Междугородние перевозки</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Комфортабельные перевозки сотрудников и групп в другие города РФ. Современные туристические
+                        автобусы.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2"
+                        style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Командировки</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Спортивные выезды</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Гастроли</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5: Forums & Exhibitions -->
+                <div class="bento-card group">
+                    <div class="w-14 h-14 bg-brand-bg border border-white/5 rounded-2xl flex items-center justify-center text-brand-accent mb-6 group-hover:bg-accent group-hover:text-brand-bg transition-colors"
+                        style="width: 3.5rem; height: 3.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: var(--brand-accent);">
+                        <i class="ph-bold ph-identification-card text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">MICE и Event-логистика</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Транспортное обслуживание форумов, конференций, выставок. Работа с большими потоками гостей.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2"
+                        style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Шаттлы отель-экспо</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Координация на площадке</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Брендирование авто</li>
+                    </ul>
+                </div>
+
+                <!-- Service 6: Tours -->
+                <div class="bento-card group">
+                    <div class="w-14 h-14 bg-brand-bg border border-white/5 rounded-2xl flex items-center justify-center text-brand-accent mb-6 group-hover:bg-accent group-hover:text-brand-bg transition-colors"
+                        style="width: 3.5rem; height: 3.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: var(--brand-accent);">
+                        <i class="ph-bold ph-camera text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Экскурсионное обслуживание</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Организация транспортной части экскурсий для партнеров и гостей компании по Казани и Татарстану.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2"
+                        style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Лицензированные автобусы</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Микрофоны и гиды</li>
+                        <li class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-brand-accent"></i>
+                            Поездки в Свияжск/Болгар</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- B2B Advantages -->
+    <section class="py-24 bg-brand-surface" style="background-color: var(--brand-surface);">
+        <div class="container">
+            <h2 class="text-3xl font-display font-bold text-white mb-12">Преимущества для бизнеса</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <!-- Advantage 1 -->
+                <div class="advantage-item">
+                    <div class="text-brand-accent text-4xl mb-2"
+                        style="font-size: 2.25rem; color: var(--brand-accent);">
+                        <i class="ph-fill ph-percent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Работаем с НДС</h3>
+                    <p class="text-gray-400 text-sm">
+                        Оптимизируйте ваши налоговые расходы. Предоставляем полный пакет закрывающих документов.
+                    </p>
+                </div>
+
+                <!-- Advantage 2 -->
+                <div class="advantage-item">
+                    <div class="text-brand-accent text-4xl mb-2"
+                        style="font-size: 2.25rem; color: var(--brand-accent);">
+                        <i class="ph-fill ph-file-text"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Электронный документооборот</h3>
+                    <p class="text-gray-400 text-sm">
+                        Экономим ваше время и бумагу. Работаем через системы ЭДО (Диадок, СБИС и др.).
+                    </p>
+                </div>
+
+                <!-- Advantage 3 -->
+                <div class="advantage-item">
+                    <div class="text-brand-accent text-4xl mb-2"
+                        style="font-size: 2.25rem; color: var(--brand-accent);">
+                        <i class="ph-fill ph-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Персональный менеджер</h3>
+                    <p class="text-gray-400 text-sm">
+                        Ваш личный куратор на связи 24/7. Решает любые оперативные вопросы и изменения в расписании.
+                    </p>
+                </div>
+
+                <!-- Advantage 4 -->
+                <div class="advantage-item">
+                    <div class="text-brand-accent text-4xl mb-2"
+                        style="font-size: 2.25rem; color: var(--brand-accent);">
+                        <i class="ph-fill ph-calendar-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Гибкая оплата</h3>
+                    <p class="text-gray-400 text-sm">
+                        Возможность работы с отсрочкой платежа (постоплата) для постоянных клиентов по договору.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big CTA -->
+    <section class="contact-section">
+        <div class="absolute inset-0 bg-accent/5" style="background-color: rgba(212, 255, 0, 0.05);"></div>
+
+        <div class="container text-center relative z-10" style="max-width: 56rem;">
+            <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">Готовы обсудить задачи?</h2>
+            <p class="text-xl text-gray-400 mb-10">
+                Заполните форму, и мы подготовим индивидуальное коммерческое предложение с расчетом стоимости в течение
+                15 минут.
+            </p>
+            <button @click="modalOpen = true" class="btn btn-accent text-lg"
+                style="box-shadow: 0 0 30px rgba(212,255,0,0.3);">
+                Запросить КП
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer-section">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Column 1: Brand & Socials -->
+                <div class="col-span-1 md:col-span-1 space-y-8">
+                    <a href="index.html" class="inline-block hover:opacity-80 transition-opacity">
+                        <img src="assets/img/logo_sec.png" alt="WinWin Group"
+                            class="h-12 w-auto object-contain brightness-0 invert"
+                            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden'); this.nextElementSibling.classList.add('block');">
+                    </a>
+                    <!-- Fallback -->
+                    <div class="hidden">
+                        <span class="font-display font-bold text-2xl text-white">WinWin<span
+                                class="text-brand-accent">.Group</span></span>
+                    </div>
+
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                        Официальный транспортный партнер вашего бизнеса. Пассажирские перевозки в Казани, Иннополисе и
+                        по всей России.
+                    </p>
+
+                    <div class="flex gap-4">
+                        <a href="https://t.me/Win24_bot" target="_blank" class="social-link">
+                            <i class="ph-bold ph-telegram-logo text-2xl"></i>
+                        </a>
+                        <a href="https://wa.me/79872975795" target="_blank" class="social-link">
+                            <i class="ph-bold ph-whatsapp-logo text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Clients -->
+                <div>
+                    <h4 class="font-display text-lg font-bold text-white mb-8 tracking-wide">Клиентам</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="corp.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Корпоративный
+                                транспорт</a></li>
+                        <li><a href="arenda.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Аренда
+                                автобусов</a></li>
+                        <li><a href="school.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Школьные
+                                экскурсии</a></li>
+                        <li><a href="transfer.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Трансфер
+                                в аэропорт</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Company -->
+                <div>
+                    <h4 class="font-display text-lg font-bold text-white mb-8 tracking-wide">Компания</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="onas.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">О
+                                нас</a></li>
+                        <li><a href="auto.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Наш
+                                автопарк</a></li>
+                        <li><a href="lich.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Лицензии</a>
+                        </li>
+                        <li><a href="rek.html"
+                                class="text-gray-400 hover:text-brand-accent transition-all flex items-center gap-2">Реквизиты</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contacts (UX Improved) -->
+                <div>
+                    <h4 class="font-display text-lg font-bold text-white mb-8 tracking-wide">Контакты</h4>
+                    <ul class="space-y-6 text-sm">
+
+                        <!-- Phone (Main CTA) -->
+                        <li>
+                            <p class="text-xs text-gray-500 mb-1 uppercase tracking-widest">Круглосуточно</p>
+                            <a href="tel:+78432975795"
+                                class="font-display text-2xl font-bold text-white hover:text-brand-accent transition-colors block mb-2">
+                                +7 (843) 297-57-95
+                            </a>
+                            <button @click="modalOpen = true"
+                                class="text-brand-accent text-xs font-bold uppercase tracking-widest border-b border-brand-accent/30 hover:border-brand-accent transition-colors pb-0.5">
+                                Заказать обратный звонок
+                            </button>
+                        </li>
+
+                        <!-- Address (Clickable) -->
+                        <li>
+                            <a href="https://yandex.ru/maps/-/CDuPFKj-" target="_blank"
+                                class="group flex items-start gap-3 text-gray-400 hover:text-white transition-colors">
+                                <i
+                                    class="ph-fill ph-map-pin text-brand-accent text-lg mt-0.5 group-hover:scale-110 transition-transform"></i>
+                                <span>г. Казань, пр. Ибрагимова, 58</span>
+                            </a>
+                        </li>
+
+                        <!-- Email -->
+                        <li>
+                            <a href="mailto:zakaz@winwingroup.ru"
+                                class="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                                <i
+                                    class="ph-fill ph-envelope-simple text-brand-accent text-lg group-hover:scale-110 transition-transform"></i>
+                                <span>zakaz@winwingroup.ru</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/5 pt-8 mt-8">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500 flex-wrap">
+                    <p>&copy; 2026 WinWin Group. Все права защищены. ОГРН 1191690042456</p>
+                    <div class="flex gap-8">
+                        <a href="privacy.html" class="hover:text-white transition-colors">Политика
+                            конфиденциальности</a>
+                        <a href="publ.html" class="hover:text-white transition-colors">Публичная оферта</a>
+                        <a href="sitemap.xml" class="hover:text-white transition-colors">Карта сайта</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Full Screen Modal -->
+    <div x-show="modalOpen" class="modal-wrapper" aria-labelledby="modal-title" role="dialog" aria-modal="true" x-cloak>
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0"
+            style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 1rem;">
+            <div x-show="modalOpen" x-transition.opacity class="modal-backdrop" @click="modalOpen = false"></div>
+
+            <div x-show="modalOpen" x-transition.scale class="modal-panel">
+                <button @click="modalOpen = false"
+                    class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                    <i class="ph ph-x text-2xl"></i>
+                </button>
+
+                <div class="p-8" style="padding: 2rem;">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-brand-bg"
+                            style="width: 2.5rem; height: 2.5rem; background-color: var(--brand-accent); color: var(--brand-bg); border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <i class="ph-bold ph-calculator text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Узнайте стоимость за 15 минут</h3>
+                    </div>
+
+                    <p class="text-sm text-gray-400 mb-6">Оставьте заявку, и мы подготовим расчет вашего маршрута.
+                        Менеджер свяжется с вами, чтобы уточнить детали и прислать финальное предложение в Telegram,
+                        WhatsApp или обсудить всё по телефону.</p>
+
+                    <form class="space-y-4" onsubmit="event.preventDefault(); modalOpen = false;"
+                        style="display: flex; flex-direction: column; gap: 1rem;">
+                        <input type="text" placeholder="Ваше имя" class="form-input">
+                        <input type="tel" placeholder="+7 (___) ___-__-__" class="form-input">
+                        <textarea placeholder="Маршрут или детали (например: Казань - Свияжск, 20 человек)" rows="3"
+                            class="form-input resize-none"></textarea>
+
+                        <div class="flex items-start gap-3 text-left">
+                            <input type="checkbox" checked
+                                style="accent-color: var(--brand-accent); width: 1rem; height: 1rem; margin-top: 0.1rem; cursor: pointer;">
+                            <label class="text-xs text-gray-500 leading-tight">
+                                Согласен с обработкой персональных данных в соответствии с <a href="privacy.html"
+                                    target="_blank"
+                                    class="underline hover:text-brand-accent transition-colors">Политикой
+                                    конфиденциальности</a>
+                            </label>
+                        </div>
+
+                        <button
+                            class="w-full bg-accent text-brand-bg font-bold py-3 rounded-lg hover:bg-white transition-colors"
+                            style="background-color: var(--brand-accent); color: var(--brand-bg); width: 100%; padding: 0.75rem; border-radius: 0.5rem;">
+                            Отправить заявку на расчет
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
