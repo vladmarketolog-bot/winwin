@@ -7,7 +7,7 @@
 // ВАЖНО: Вставь сюда свой URL веб-приложения (Web App URL) от Google Apps Script
 // Пример: 'https://script.google.com/macros/s/AKfycbx.../exec'
 // =========================================================================
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwVeICay0q7Mg8pJWb0vJ5GkkEGuGJl42HMpUDC3b3eK3104lo97Z5CFKB0mq1VVVrSLA/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxLvwxRSROW7fWT1zbtyrksVCCy7X3IylHpJTBag0mcOE6vaKZLHeYGrtVRxR5POZks/exec';
 
 async function handleFormSubmit(event) {
     event.preventDefault(); // Предотвращаем перезагрузку страницы
