@@ -418,9 +418,14 @@
                         <div class="space-y-4" id="requisites-ooo"
                             style="display: flex; flex-direction: column; gap: 1rem;">
                             <div class="flex flex-col gap-1">
+                                <span class="text-xs text-gray-500 uppercase tracking-widest">Полное наименование</span>
+                                <span class="text-white font-mono text-sm leading-tight select-all">ООО «ИННОПОЛИС
+                                    ЭКСПРЕСС»</span>
+                            </div>
+                            <div class="flex flex-col gap-1">
                                 <span class="text-xs text-gray-500 uppercase tracking-widest">Юр. адрес</span>
-                                <span class="text-white font-mono text-sm leading-tight select-all">респ. Татарстан, г.
-                                    Иннополис, ул. Спортивная, д. 102, помещ. 2</span>
+                                <span class="text-white font-mono text-sm leading-tight select-all">420500, Республика
+                                    Татарстан, г. Иннополис, ул. Спортивная, 102, оф. 2</span>
                             </div>
                             <div class="flex flex-col gap-1">
                                 <span class="text-xs text-gray-500 uppercase tracking-widest">ИНН</span>
@@ -434,11 +439,28 @@
                                 <span class="text-xs text-gray-500 uppercase tracking-widest">ОГРН</span>
                                 <span class="text-white font-mono select-all">1151690079903</span>
                             </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-xs text-gray-500 uppercase tracking-widest">Расчетный счет</span>
+                                <span class="text-white font-mono select-all">40702810562000015527</span>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-xs text-gray-500 uppercase tracking-widest">Банк</span>
+                                <span class="text-white font-mono text-sm leading-tight select-all">ОТДЕЛЕНИЕ «БАНК
+                                    ТАТАРСТАН» №8610 ПАО СБЕРБАНК Г. КАЗАНЬ</span>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-xs text-gray-500 uppercase tracking-widest">БИК</span>
+                                <span class="text-white font-mono select-all">049205603</span>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <span class="text-xs text-gray-500 uppercase tracking-widest">Корр. счет</span>
+                                <span class="text-white font-mono select-all">30101810600000000603</span>
+                            </div>
                         </div>
 
                         <!-- Copy Button -->
                         <button @click="
-                                navigator.clipboard.writeText(`ООО «ИННОПОЛИС ЭКСПРЕСС»\nИНН 1615012309\nКПП 161501001\nОГРН 1151690079903\nЮр. адрес: респ. Татарстан, г. Иннополис, ул. Спортивная, д. 102, помещ. 2`);
+                                navigator.clipboard.writeText(`ООО «ИННОПОЛИС ЭКСПРЕСС»\nИНН 1615012309\nКПП 161501001\nОГРН 1151690079903\nАдрес: 420500, Республика Татарстан, г. Иннополис, ул. Спортивная, 102, оф. 2\nР/с 40702810562000015527\nБанк: ОТДЕЛЕНИЕ «БАНК ТАТАРСТАН» №8610 ПАО СБЕРБАНК Г. КАЗАНЬ\nБИК 049205603\nК/с 30101810600000000603`);
                                 copied = true;
                                 setTimeout(() => copied = false, 2000)
                             "
